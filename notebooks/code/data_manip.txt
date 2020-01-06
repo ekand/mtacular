@@ -1,3 +1,18 @@
 
 
+import pandas as pd
+import numpy as np
+
+
+
+
+
+
+df.rename(columns={'EXITS                                                               ':'EXITS'}, inplace=True)
+
+
+
+
+df['LINENAMESET'] = pd.Series([set(df.LINENAME[i]) for i in range(len(df.LINENAME))])
+
 df['DATETIME'] = pd.to_datetime(pd.Series([df.DATE[i]+'T'+df.TIME[i] for i in range(len(df.DATE))]))
