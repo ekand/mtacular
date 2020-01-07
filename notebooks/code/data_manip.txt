@@ -26,4 +26,6 @@ for i, row in df.iterrows():
     if df['C/A'][i] == df['C/A'][i-1] and df['UNIT'][i] == df['UNIT'][i-1] and df['SCP'][i] == df['SCP'][i-1]:
         df['INS'][i] = row.ENTRIES - df.loc[i-1].ENTRIES
         df['OUTS'][i] = row.EXITS - df.loc[i-1].EXITS
-        #print("row "+i+" done")
+        print("row "+i+" done")
+
+
