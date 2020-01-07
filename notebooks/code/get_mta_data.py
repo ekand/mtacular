@@ -13,15 +13,15 @@ from pathlib import Path
 
 
 def load_local_data(years, months):
-    dfs = []
+
+    df = pd.DataFrame()
     base_path = PROJECT_DIR + "/data/raw/"
     filenames = generate_filenames(years, months)
     for filename in filenames:
         filepath = base_path + filename
-        df = pd.read_csv(filepath)
-        dfs.append(df)
-    mta = pd.concat(dfs)
-    return mta
+        df = pd.concat([df, pd.read_csv(filepath)], ignore_index=True)
+    return df
+
 
 def get_data(years, months):
     filenames = generate_filenames(years, months)
@@ -54,10 +54,11 @@ def download_one_file(filename):
 if __name__ == "__main__":
     years_input = [2018, 2019]
     years_input = [2019]
-    months_input = [3, 4]
+    months_input = [4]
 
     print(f"running {str(Path(__file__))}")
-    get_data(years_input, months_input)
+    # get_data(years_input, months_input)
+    mta = load_local_data(years_input, months_input)
     print("script complete")
 
 
