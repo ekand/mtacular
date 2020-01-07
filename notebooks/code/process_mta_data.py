@@ -12,4 +12,18 @@ def add_datetime(df):
     :return: a dataframe with a new datetime column, generated from
 
     """
-    
+    time = df.DATE + ' ' + df.TIME
+    new_col = pd.to_datetime(time)
+    df['datetime'] = new_col
+    return df
+
+
+def clean_col_names(df):
+    """
+    cleans up the column names in the mta dataframe
+
+    :param df: mta dataframe
+    :return: mta dataframe with cleaned columns
+    """
+    before = 'EXITS                                                               '
+    df.rename(columns={before: 'EXITS'}, inplace=True)
