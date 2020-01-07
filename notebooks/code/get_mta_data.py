@@ -12,6 +12,17 @@ import datetime
 from pathlib import Path
 
 
+def load_local_data(years, months):
+    dfs = []
+    base_path = PROJECT_DIR + "/data/raw/"
+    filenames = generate_filenames(years, months)
+    for filename in filenames:
+        filepath = base_path + filename
+        df = pd.read_csv(filepath)
+        dfs.append(df)
+    mta = pd.concat(dfs)
+    return mta
+
 def get_data(years, months):
     filenames = generate_filenames(years, months)
     for filename in filenames:
