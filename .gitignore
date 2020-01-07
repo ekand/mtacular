@@ -1,6 +1,8 @@
 # DotEnv configuration
 .env
 
+keepme.txt
+
 # Pycharm
 .idea
 
