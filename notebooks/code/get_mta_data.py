@@ -5,7 +5,8 @@ import pandas as pd
 
 # Get data from MTA website according to variables **years** and **months**.
 # saves data to ../../data/raw/
-
+from pathlib import Path
+PROJECT_DIR = str(Path(__file__).resolve().parents[2])
 
 import datetime
 from pathlib import Path
@@ -16,6 +17,7 @@ def get_data(years, months):
     for filename in filenames:
         download_one_file(filename)
         print(f"downloaded {filename}")
+
 
 def generate_filenames(years, months):
     filenames = []
@@ -33,7 +35,7 @@ def download_one_file(filename):
     import urllib.request
     base_url = 'http://web.mta.info/developers/data/nyct/turnstile/'
     url = base_url + filename
-    base_data_path = "../../data/raw/"
+    base_data_path = PROJECT_DIR + "/data/raw/"
     file_path = base_data_path + filename
     urllib.request.urlretrieve(url, file_path)
 
