@@ -13,8 +13,7 @@ def add_datetime(df):
 
     """
     time = df.DATE + ' ' + df.TIME
-    new_col = pd.to_datetime(time)
-    df['datetime'] = new_col
+    df['datetime'] = pd.to_datetime(time)
     return df
 
 
@@ -27,3 +26,4 @@ def clean_col_names(df):
     """
     before = 'EXITS                                                               '
     df.rename(columns={before: 'EXITS'}, inplace=True)
+    return df
