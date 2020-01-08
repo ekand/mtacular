@@ -37,4 +37,5 @@ def add_ins_outs_loop(df):
 def add_ins_outs_to_df(df):
     mask = df.duplicated(['CA', 'UNIT', 'SCP', 'STATION'])
     df['INS'] = np.where(mask, df['ENTRIES'] - df['ENTRIES'].shift(1), np.nan)
+    df['OUTS'] = np.where(mask, df['EXITS'] - df['EXITS'].shift(1), np.nan)
 
