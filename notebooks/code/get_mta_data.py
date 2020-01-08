@@ -39,6 +39,7 @@ def generate_filenames(years, months):
         if current.year in years and current.month in months:
             filenames.append(current.strftime('turnstile_%y%m%d.txt'))
         current -= file_delta
+    filenames = filenames[::-1]
     return filenames
 
 
