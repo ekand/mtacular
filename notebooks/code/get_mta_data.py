@@ -79,6 +79,18 @@ def get_interem_ekand_v_0_1(filename):
     return pd.read_csv(filepath)
 
 
+def get_interem_ekand_v_0_n(filename):
+    """
+    Loads the cleaned data at "/data/interem/" + filename
+    suggested filename: "ekand_clean_data_0.n.csv"
+
+    :param filename: string
+    :return: dataframe
+    """
+    filepath = PROJECT_DIR + "/data/interem/" + filename
+    return pd.read_csv(filepath)
+
+
 
 if __name__ == "__main__":
     years_input = [2018, 2019]
