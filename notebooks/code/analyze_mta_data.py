@@ -22,13 +22,13 @@ def group_by_station(df):
 #     df['DATE'] = df.index.get_level_values('DATE')
 
 
-def get_station_freqs(df):
+def get_station_freqs(df, method='median'):
     """
     apply to df after applying group_by_days and group_by_station
     """
     #df['DATE'] = df.index.get_level_values('DATE')
     df['DAY'] = [d.dayofweek for d in df.index.get_level_values('DATE')]
-    return df.groupby(['STATION', 'DAY']).agg({'INS':'median', 'OUTS':'median'})
+    return df.groupby(['STATION', 'DAY']).agg({'INS':method, 'OUTS':method})
     
 
 
@@ -36,4 +36,13 @@ def get_station_freqs(df):
 def mean_weekday_rankings(df):
     df = df.drop(index=5, level='DAY')
     df = df.drop(index=6, level='DAY')
+    return df.groupby(['STATION']).agg({'INS':'mean', 'OUTS':'mean'}).sort_values('INS', ascending=False)
+
+
+def mean_weekend_rankings(df):
+    df = df.drop(index=0, level='DAY')
+    df = df.drop(index=1, level='DAY')
+    df = df.drop(index=2, level='DAY')
+    df = df.drop(index=3, level='DAY')
+    df = df.drop(index=4, level='DAY')
     return df.groupby(['STATION']).agg({'INS':'mean', 'OUTS':'mean'}).sort_values('INS', ascending=False)
