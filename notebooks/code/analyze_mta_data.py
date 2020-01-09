@@ -16,10 +16,10 @@ def group_by_station(df):
     return df.groupby(['STATION','DATE']).agg({'INS':'sum', 'OUTS':'sum'})
 
 
-def get_daily_station_sums(df):
-    """
-    """
-    df['DATE'] = df.index.get_level_values('DATE')
+# def get_daily_station_sums(df):
+#     """
+#     """
+#     df['DATE'] = df.index.get_level_values('DATE')
 
 
 def get_weekday_station_freqs(df):
@@ -28,4 +28,5 @@ def get_weekday_station_freqs(df):
     """
     #df['DATE'] = df.index.get_level_values('DATE')
     df['DAY'] = [d.dayofweek for d in df.index.get_level_values('DATE')]
-    df_grouped = df.group_by
+    return df.groupby(['STATION', 'DAY']).agg({'INS':'mean', 'OUTS':'mean'})
+    
