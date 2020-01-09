@@ -1,7 +1,6 @@
 # DotEnv configuration
 .env
 
-keepme.txt
 
 # Pycharm
 .idea
@@ -15,8 +14,12 @@ keepme.txt
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
 
+
+# but keep files that are keepme.txt please
 # exclude data from source control by default
 /data/
+!/data/keepme.txt
+
 
 # Mac OS-specific storage files
 .DS_Store
@@ -25,4 +28,7 @@ keepme.txt
 *.swp
 *.swo
 
-!*/.gitkeep
+# py cache
+*.pyc
+
+# !**/.gitkeep
