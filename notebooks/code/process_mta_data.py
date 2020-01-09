@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
+from datetime import datetime as dt
 
 PROJECT_DIR = str(Path(__file__).resolve().parents[2])
 
@@ -14,7 +15,7 @@ def add_datetime(df):
     """
     df = df.copy()
     time = df.DATE + ' ' + df.TIME
-    df['DATETIME'] = pd.to_datetime(time, format='%m/%d/%Y %H:%M:%S') # TODO make format explicit
+    df['DATETIME'] = pd.to_datetime(time, format='%m/%d/%Y %H:%M:%S')
     return df
 
 def convert_date_to_datetime(df):
@@ -43,6 +44,9 @@ def clean_col_names(df):
 
 def remove_recovr_aud(df):
     """
+    removes those rows for which DESC is not "RECOVER AUD"
+    :param df:
+    :return: df
     """
     return df[df['DESC'] != "RECOVR AUD"]
 
@@ -76,6 +80,14 @@ def apply_processing_sequence(df):
     df = add_ins_outs_to_df(df)
     df = remove_outliers(df)
     return df
+
+def filter_to_midnight(df):
+    df = df.copy()
+    mask = df['DATETIME'].dt.time == dt(2016, 1, 1, 0, 0, 0).time()  # date is arbitrary, important part is time
+    df = df[mask]
+    return df
+
+
 
 
 
