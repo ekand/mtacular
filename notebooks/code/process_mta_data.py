@@ -14,7 +14,7 @@ def add_datetime(df):
     """
     df = df.copy()
     time = df.DATE + ' ' + df.TIME
-    df['datetime'] = pd.to_datetime(time, format='%m/%d/%Y %H:%M:%S') # TODO make format explicit
+    df['DATETIME'] = pd.to_datetime(time, format='%m/%d/%Y %H:%M:%S') # TODO make format explicit
     return df
 
 def convert_date_to_datetime(df):
@@ -61,32 +61,22 @@ def add_ins_outs_to_df(df_in):
 
 
 def remove_outliers(df):
-    df = df[df['INS'] < 500000]
-    return df[df['INS'] >= 0]
+    df = df[df['INS'] < 200000]
+    df = df[df['INS'] >= 0]
+    df = df[df['OUTS'] < 200000]
+    df = df[df['OUTS'] >= 0]
+    return df
 
 def apply_processing_sequence(df):
     df = clean_col_names(df)
     df = add_datetime(df)
+    df = convert_date_to_datetime(df)
     df = remove_recovr_aud(df)
     df = df.sort_values(['CA','UNIT','SCP','STATION','DATETIME'])
     df = add_ins_outs_to_df(df)
     df = remove_outliers(df)
     return df
 
-#################################
-## data has been processed and cleaned, now let's work on it:
-
-
-def group_by_days(df):
-    """
-    """
-    return df.groupby(['CA', 'UNIT', 'SCP', 'STATION', 'DATE']).agg({'INS': 'sum', 'OUTS': 'sum'})
-
-
-def get_weekday_station_freqs(df):
-    """
-    apply to df after applying group_by_days
-    """
 
 
 
