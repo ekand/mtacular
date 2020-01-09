@@ -6,7 +6,8 @@ import numpy as np
 
 
 
-
+# already in process_mta_data.py
+# note this one renames C/A to CA
 def rename_columns_mta(df):
     df.rename(columns={'EXITS                                                               ':'EXITS', 'C/A':'CA'}, inplace=True)
 
@@ -16,6 +17,7 @@ def change_linename_to_set(df):
     df['LINENAMESET'] = pd.Series([set(df.LINENAME[i]) for i in range(len(df.LINENAME))])
 
 
+# already in process_mta_data.py
 def add_datetime_to_mta(df):
     df['DATETIME'] = df.DATE+' '+df.TIME
     df['DATETIME'] = pd.to_datetime(df['DATETIME'],format='%m/%d/%Y %H:%M:%S')
