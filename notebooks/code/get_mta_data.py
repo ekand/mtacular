@@ -52,6 +52,34 @@ def download_one_file(filename):
     urllib.request.urlretrieve(url, file_path)
 
 
+
+
+def save_interem_ekand_v_0_1(df, filename):
+    """
+    saves the cleaned data to "/data/interem/" + filename
+    suggested filename: "ekand_clean_data_0.1.csv"
+
+    :param df: dataframe
+    :param filename: string
+    :return: None
+    """
+    filepath = PROJECT_DIR + "/data/interem/" + filename
+    df.to_csv(filepath)
+
+
+def get_interem_ekand_v_0_1(filename):
+    """
+    Loads the cleaned data at "/data/interem/" + filename
+    suggested filename: "ekand_clean_data_0.1.csv"
+
+    :param filename: string
+    :return: dataframe
+    """
+    filepath = PROJECT_DIR + "/data/interem/" + filename
+    return pd.read_csv(filepath)
+
+
+
 if __name__ == "__main__":
     years_input = [2018, 2019]
     years_input = [2019]
