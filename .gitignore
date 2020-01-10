@@ -19,7 +19,8 @@
 # but keep files that are keepme.txt please
 # exclude data from source control by default
 /data/
-# !**/.gitkeep
+!**/.gitkeep
+!**/data_manifest.txt
 
 # Mac OS-specific storage files
 .DS_Store

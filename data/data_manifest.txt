@@ -1,0 +1,43 @@
+Data Matifest
+2019-01-10
+
+├── data
+│   ├── interem
+│   │   ├── ekand_clean_data_0.1.csv
+│   │   ├── ekand_clean_data_0.2.csv
+│   │   └── keepme.txt
+│   ├── keepme.txt
+│   └── raw
+│       ├── keepme.txt
+│       ├── turnstile_170107.txt
+│       ├── turnstile_170114.txt
+│       ├── turnstile_170121.txt
+│       ├── turnstile_170128.txt
+│       ├── turnstile_170422.txt
+│       ├── turnstile_170429.txt
+│       ├── turnstile_180303.txt
+│       ├── turnstile_180310.txt
+│       ├── turnstile_180317.txt
+│       ├── turnstile_180324.txt
+│       ├── turnstile_180331.txt
+│       ├── turnstile_180407.txt
+│       ├── turnstile_180414.txt
+│       ├── turnstile_180421.txt
+│       ├── turnstile_180428.txt
+│       ├── turnstile_180505.txt
+│       ├── turnstile_180512.txt
+│       ├── turnstile_180519.txt
+│       ├── turnstile_180526.txt
+│       ├── turnstile_190302.txt
+│       ├── turnstile_190309.txt
+│       ├── turnstile_190316.txt
+│       ├── turnstile_190323.txt
+│       ├── turnstile_190330.txt
+│       ├── turnstile_190406.txt
+│       ├── turnstile_190413.txt
+│       ├── turnstile_190420.txt
+│       ├── turnstile_190427.txt
+│       ├── turnstile_190504.txt
+│       ├── turnstile_190511.txt
+│       ├── turnstile_190518.txt
+│       └── turnstile_190525.txt
