@@ -28,7 +28,8 @@ def get_station_freqs(df, method='median'):
     """
     #df['DATE'] = df.index.get_level_values('DATE')
     df['DAY'] = [d.dayofweek for d in df.index.get_level_values('DATE')]
-    return df.groupby(['STATION', 'DAY']).agg({'INS':method, 'OUTS':method})
+    df['DAYNAME'] = [d.day_name() for d in df.index.get_level_values('DATE')]
+    return df.groupby(['STATION', 'DAY','DAYNAME']).agg({'INS':method, 'OUTS':method})
     
 
 
