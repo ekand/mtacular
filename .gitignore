@@ -1,8 +1,7 @@
 # DotEnv configuration
 .env
-
-!**/keepme.txt
-
+!keepme.txt
+!ph.txt
 # Pycharm
 .idea
 
@@ -18,8 +17,13 @@
 
 # but keep files that are keepme.txt please
 # exclude data from source control by default
-/data/
-!**/.gitkeep
+# */data/*
+* */data/*.*
+data/*.*
+data/interem/*.*
+data/raw/*.*
+# /data/
+!.gitkeep
 !**/data_manifest.txt
 
 # Mac OS-specific storage files
