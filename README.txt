@@ -1,26 +1,21 @@
 mtacular
 ==============================
 
-Analysis of mta turnstyle data for a hypothetical client
+Analysis of mta turnstile data for a hypothetical client
 
 Project Organization
 ------------
 .
-├── LICENSE
-├── README.md
 ├── data
-│   ├── external
-│   ├── interim
-│   ├── processed
+│   ├── interem
 │   └── raw
-├── docs
 ├── notebooks
 │   └── code
+│       └── __pycache__
 ├── references
-├── reports
-│   └── figures
-└── requirements.txt
+└── reports
+    └── figures
 
 --------
 
-Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience
+Project based on the cookiecutter data science project template href="https://drivendata.github.io/cookiecutter-data-science/" #cookiecutterdatascience
