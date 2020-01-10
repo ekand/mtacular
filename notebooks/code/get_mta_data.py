@@ -64,13 +64,25 @@ def save_interem_ekand_v_0_1(df, filename):
     :return: None
     """
     filepath = PROJECT_DIR + "/data/interem/" + filename
-    df.to_csv(filepath)
+    df.to_csv(filepath, index=False)
 
 
 def get_interem_ekand_v_0_1(filename):
     """
     Loads the cleaned data at "/data/interem/" + filename
     suggested filename: "ekand_clean_data_0.1.csv"
+
+    :param filename: string
+    :return: dataframe
+    """
+    filepath = PROJECT_DIR + "/data/interem/" + filename
+    return pd.read_csv(filepath)
+
+
+def get_interem_ekand_v_0_n(filename):
+    """
+    Loads the cleaned data at "/data/interem/" + filename
+    suggested filename: "ekand_clean_data_0.n.csv"
 
     :param filename: string
     :return: dataframe
