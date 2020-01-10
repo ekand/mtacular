@@ -1,7 +1,5 @@
 # DotEnv configuration
 .env
-!keepme.txt
-!ph.txt
 # Pycharm
 .idea
 
@@ -17,12 +15,10 @@
 
 # but keep files that are keepme.txt please
 # exclude data from source control by default
-# */data/*
-* */data/*.*
 data/*.*
 data/interem/*.*
 data/raw/*.*
-# /data/
+# but keep .gitkeep files and data_manifest files
 !.gitkeep
 !**/data_manifest.txt
 
