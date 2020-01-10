@@ -46,3 +46,15 @@ def mean_weekend_rankings(df):
     df = df.drop(index=3, level='DAY')
     df = df.drop(index=4, level='DAY')
     return df.groupby(['STATION']).agg({'INS':'mean', 'OUTS':'mean'}).sort_values('INS', ascending=False)
+
+
+
+
+## BY WEEKDAY
+##   apply these functions to the data after all the functions in process_mta_data,
+##   and after group_by_days and group_by_station above
+
+
+def group_by_day_of_week(df, method=''):
+    df = get_station_freqs(df)
+    return df.groupby('DAY').agg({'INS':'sum','OUTS':'sum'})
