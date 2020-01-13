@@ -3,6 +3,12 @@ mtacular
 
 Analysis of mta turnstile data for a hypothetical client
 
+Contributors
+Eric Bassett
+Erik Kristofer Anderson
+Eli T. Drumm
+Joanna Nachman
+
 Project Organization
 ------------
 .
